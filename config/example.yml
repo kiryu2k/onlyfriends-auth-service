@@ -1,0 +1,14 @@
+server:
+  host: {{ srv_host }}
+  port: {{ srv_port }}
+
+database:
+  host: {{ db_host }}
+  port: 5432
+  user: {{ db_user }}
+  password: {{ db_password }}
+  dbname: {{ db_name }}
+  sslmode: "disable"
+  schema: {{ db_schema }}
+
+token_signing_key: {{ token }}
