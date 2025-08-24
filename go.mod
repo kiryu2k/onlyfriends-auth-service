@@ -7,7 +7,7 @@ require (
 	github.com/golang-jwt/jwt/v5 v5.3.0
 	github.com/google/uuid v1.6.0
 	github.com/jackc/pgx/v5 v5.7.5
-	github.com/kiryu2k/onlyfriends-protos v0.0.0-20250824134902-1630479426b7
+	github.com/kiryu2k/onlyfriends-protos v0.0.0-20250824183505-6aa6768604d9
 	github.com/pkg/errors v0.9.1
 	golang.org/x/crypto v0.41.0
 	google.golang.org/grpc v1.75.0
@@ -15,7 +15,7 @@ require (
 )
 
 require (
-	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.36.8-20250717185734-6c6e0d3c608e.1 // indirect
+	github.com/envoyproxy/protoc-gen-validate v1.2.1 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.8 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
