@@ -49,7 +49,9 @@ func main() {
 	}
 
 	authTransport := grpc2.NewAuth(authSvc)
-	server := grpc.NewServer()
+	server := grpc.NewServer(
+		grpc.UnaryInterceptor(grpc2.ValidationMiddleware),
+	)
 	proto.RegisterAuthServer(server, authTransport)
 
 	err = server.Serve(lis)
