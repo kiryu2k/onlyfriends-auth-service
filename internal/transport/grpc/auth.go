@@ -3,7 +3,7 @@ package grpc
 import (
 	"context"
 
-	"github.com/kiryu2k/onlyfriends-auth-service/internal/proto"
+	proto "github.com/kiryu2k/onlyfriends-protos/auth"
 	"github.com/pkg/errors"
 )
 

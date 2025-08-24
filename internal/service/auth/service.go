@@ -5,7 +5,7 @@ import (
 
 	"github.com/google/uuid"
 	"github.com/kiryu2k/onlyfriends-auth-service/internal/entity"
-	"github.com/kiryu2k/onlyfriends-auth-service/internal/proto"
+	proto "github.com/kiryu2k/onlyfriends-protos/auth"
 	"github.com/pkg/errors"
 )
 

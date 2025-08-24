@@ -8,12 +8,12 @@ import (
 	"github.com/go-playground/validator/v10"
 	"github.com/jackc/pgx/v5"
 	"github.com/kiryu2k/onlyfriends-auth-service/config"
-	"github.com/kiryu2k/onlyfriends-auth-service/internal/proto"
 	"github.com/kiryu2k/onlyfriends-auth-service/internal/repository"
 	"github.com/kiryu2k/onlyfriends-auth-service/internal/service/auth"
 	"github.com/kiryu2k/onlyfriends-auth-service/internal/service/hasher"
 	"github.com/kiryu2k/onlyfriends-auth-service/internal/service/token"
 	grpc2 "github.com/kiryu2k/onlyfriends-auth-service/internal/transport/grpc"
+	proto "github.com/kiryu2k/onlyfriends-protos/auth"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
