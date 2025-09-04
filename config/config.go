@@ -12,10 +12,6 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-const (
-	defaultConfigPath = "./config/config.yml"
-)
-
 type Server struct {
 	Host string `yaml:"host" validate:"required"`
 	Port int    `yaml:"port" validate:"required"`
@@ -48,8 +44,8 @@ type Config struct {
 	TokenSigningKey string   `yaml:"token_signing_key" validate:"required"`
 }
 
-func Load(validate *validator.Validate) (*Config, error) {
-	f, err := os.Open(defaultConfigPath)
+func Load() (*Config, error) {
+	f, err := os.Open(defineConfigPath())
 	if err != nil {
 		return nil, errors.WithMessage(err, "open config file")
 	}
@@ -65,10 +61,18 @@ func Load(validate *validator.Validate) (*Config, error) {
 	if err != nil {
 		return nil, errors.WithMessage(err, "decode config yml file")
 	}
-	err = validate.Struct(cfg)
+	err = validator.New().Struct(cfg)
 	if err != nil {
 		return nil, errors.WithMessage(err, "validate config")
 	}
 
 	return cfg, nil
+}
+
+func defineConfigPath() string {
+	isDev := os.Getenv("APP_MODE") == "dev"
+	if isDev {
+		return "./config/config_dev.yml"
+	}
+	return "./config.yml"
 }

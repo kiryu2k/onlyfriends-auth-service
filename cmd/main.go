@@ -5,7 +5,6 @@ import (
 	"log"
 	"net"
 
-	"github.com/go-playground/validator/v10"
 	"github.com/jackc/pgx/v5"
 	"github.com/kiryu2k/onlyfriends-auth-service/config"
 	"github.com/kiryu2k/onlyfriends-auth-service/internal/repository"
@@ -19,8 +18,7 @@ import (
 )
 
 func main() {
-	validate := validator.New()
-	cfg, err := config.Load(validate)
+	cfg, err := config.Load()
 	if err != nil {
 		log.Fatal(errors.WithMessage(err, "load config"))
 	}
