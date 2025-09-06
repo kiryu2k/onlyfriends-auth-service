@@ -51,7 +51,10 @@ func Run(ctx context.Context, cfg *config.Config) error {
 
 	authTransport := grpc2.NewAuth(authSvc)
 	server := grpc.NewServer(
-		grpc.UnaryInterceptor(grpc2.ValidationMiddleware),
+		grpc.ChainUnaryInterceptor(
+			grpc2.ValidationMiddleware,
+			grpc2.LoggingMiddleware(logger),
+		),
 	)
 	proto.RegisterAuthServer(server, authTransport)
 	healthcheck(server)
